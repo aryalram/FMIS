@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Navbar() {
   return (
     <nav className="bg-gray-900 text-white px-4 py-4">
@@ -6,21 +8,21 @@ export default function Navbar() {
           AWAMATANGI RESEARCH GROUP
         </h1>
         <div className="flex gap-6 text-lg font-semibold">
-          <a href="#" className="hover:underline">
+          <Link to="/" className="hover:underline">
             Home
-          </a>
+          </Link>
           <span>|</span>
-          <a href="#" className="hover:underline">
+          <Link to="/research" className="hover:underline">
             Research
-          </a>
+          </Link>
           <span>|</span>
-          <a href="#" className="hover:underline">
+          <Link to="/about-us" className="hover:underline">
             About us
-          </a>
+          </Link>
           <span>|</span>
-          <a href="#" className="hover:underline">
+          <Link to="/news-and-events" className="hover:underline">
             News and Events
-          </a>
+          </Link>{" "}
         </div>
       </div>
     </nav>

@@ -1,23 +1,21 @@
 // src/App.jsx
-import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import HeroSection from "./components/HeroSection";
-import ResearchCards from "./components/ResearchCards";
 import AboutUs from "./components/AboutUs";
-import Footer from "./components/Footer";
-import Test from "../Test";
+import Home from "./components/Home";
+import Research from "./components/Research";
+import NewsEvents from "./components/NewsEvents";
 
-function App() {
+export default function App() {
   return (
     <>
       <Navbar />
-      <HeroSection />
-      <ResearchCards />
-      <AboutUs />
-      <Footer />
-      <Test />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/research" element={<Research />} />
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/news-and-events" element={<NewsEvents />} />
+      </Routes>
     </>
   );
 }
-
-export default App;
