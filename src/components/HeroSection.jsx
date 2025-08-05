@@ -8,6 +8,13 @@ export default function HeroSection() {
       <p className="mt-4 text-xl md:text-2xl">
         RAISE UP AGAIN THE BILLOWING SAIL!
       </p>
+      <iframe
+        src="http://10.11.4.152:8383/greenstone3/library"
+        title="Digital Library"
+        width="100%"
+        height="2000vh"
+        style={{ border: "none" }}
+      />
     </section>
   );
 }
