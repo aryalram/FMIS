@@ -1,9 +1,44 @@
 // src/components/Navbar.jsx
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import logo from "../assets/images/navbar/Logo.svg"; // Import logo as URL
 import backgroundImage from "../assets/images/navbar/bg_vetor.png"; // Import background image
 
 export default function Navbar() {
+  const location = useLocation();
+  const linkRefs = useRef([]); // Array to store link refs
+  const underlineRef = useRef(null);
+
+  useEffect(() => {
+    const currentPath = location.pathname;
+    const activeIndex = linkRefs.current.findIndex(
+      (ref) => ref?.dataset.path === currentPath
+    );
+    if (activeIndex !== -1 && underlineRef.current) {
+      // Set fixed left positions based on data-path
+      let leftPosition;
+      switch (currentPath) {
+        case "/":
+          leftPosition = -643;
+          break;
+        case "/research":
+          leftPosition = -505;
+          break;
+        case "/about-us":
+          leftPosition = -344;
+          break;
+        case "/news-and-events":
+          leftPosition = -149;
+          break;
+        default:
+          leftPosition = 0; // Default case
+      }
+      underlineRef.current.style.left = `${leftPosition}px`;
+    } else if (underlineRef.current) {
+      underlineRef.current.style.display = "none";
+    }
+  }, [location]);
+
   return (
     <nav
       className="bg-[#141E27] text-white px-2 py-4 relative overflow-hidden"
@@ -24,21 +59,57 @@ export default function Navbar() {
           <img src={logo} alt="Awamangi Research Group Logo" className="h-15" />
         </div>
         <div className="link-container relative flex items-center gap-7 text-sh4">
-          <Link to="/" data-path="/">
+          <Link
+            to="/"
+            ref={(el) => (linkRefs.current[0] = el)}
+            data-path="/"
+            className="hover:underline font-poppins font-semibold"
+          >
             Home
           </Link>
           <Divider />
-          <Link to="/research" data-path="/research">
+          <Link
+            to="/research"
+            ref={(el) => (linkRefs.current[1] = el)}
+            data-path="/research"
+            className="hover:underline font-poppins font-semibold"
+          >
             Research
           </Link>
           <Divider />
-          <Link to="/about-us" data-path="/about-us">
+          <Link
+            to="/about-us"
+            ref={(el) => (linkRefs.current[2] = el)}
+            data-path="/about-us"
+            className="hover:underline font-poppins font-semibold"
+          >
             About us
           </Link>
           <Divider />
-          <Link to="/news-and-events" data-path="/news-and-events">
+          <Link
+            to="/news-and-events"
+            ref={(el) => (linkRefs.current[3] = el)}
+            data-path="/news-and-events"
+            className="hover:underline font-poppins font-semibold"
+          >
             News and Events
           </Link>
+
+          <div
+            ref={underlineRef}
+            className="relative"
+            style={{
+              height: "3px",
+              width: "57px",
+              background:
+                "linear-gradient(to right, #3373BA, #68C5B2, #14B6D3, #00A7A7)",
+              opacity: 1,
+              transition: "left 0.3s ease, width 0.3s ease",
+              display: "block",
+              top: "15px",
+              zIndex: 50,
+            }}
+          />
         </div>
       </div>
     </nav>
