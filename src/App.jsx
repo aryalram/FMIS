@@ -3,7 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
-import Test from "../Test";
+import HeroSection from "./components/HeroSection";
+import ResearchCards from "./components/ResearchCards";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       <HeroSection />
       <ResearchCards />
       <AboutUs />
+
       <Footer />
     </>
   );
