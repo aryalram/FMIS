@@ -51,9 +51,9 @@
   .text-sh4 {
     font-family: "Poppins", sans-serif;
     font-weight: 600; /* bold */
-    font-size: 15pt;
+    font-size: 14pt;
     line-height: 137%;
-    letter-spacing: 0%;
+    letter-spacing: 1px;
   }
 
   .text-sh5 {

@@ -23,7 +23,7 @@ export default function Navbar() {
         <div className="flex items-center">
           <img src={logo} alt="Awamangi Research Group Logo" className="h-15" />
         </div>
-        <div className="link-container relative flex items-center gap-8 text-sh4">
+        <div className="link-container relative flex items-center gap-7 text-sh4">
           <Link to="/" data-path="/">
             Home
           </Link>
@@ -51,8 +51,8 @@ const Divider = () => (
     className="text-white flex items-center"
     style={{
       fontFamily: "Poppins",
-      fontWeight: 400,
-      fontSize: "24px",
+      fontWeight: 600,
+      fontSize: "18px",
       lineHeight: "100%",
       letterSpacing: "0%",
       textAlign: "center",
