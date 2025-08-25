@@ -1,20 +1,32 @@
+
+
 export default function HeroSection() {
-  return (
-    <section className="bg-[#0b1449] text-white text-center py-24 px-4">
-      <h1 className="text-4xl md:text-5xl font-extrabold uppercase leading-tight">
-        WHAKAARAHIA <br />
-        ANŌ TE RĀ KAIHAU!
-      </h1>
-      <p className="mt-4 text-xl md:text-2xl">
-        RAISE UP AGAIN THE BILLOWING SAIL!
-      </p>
-      <iframe
-        src="http://10.11.4.152:8383/greenstone3/library"
-        title="Digital Library"
-        width="100%"
-        height="2000vh"
-        style={{ border: "none" }}
-      />
-    </section>
-  );
+    return (
+        <section className="relative">
+            {/* 背景图 */}
+            <img
+                src="/HeroImage.png"
+                alt="Te Rā Sail"
+                className="w-full h-[400px] md:h-[600px] object-cover"
+            />
+
+            {/* 文字叠加 */}
+            <div className="absolute inset-0 flex flex-col justify-center items-start px-8 md:px-16 bg-black bg-opacity-30">
+                <h1 className="text-4xl md:text-6xl font-extrabold text-white uppercase leading-tight">
+                    WHAKAARAHIA <br /> ANŌ TE RĀ KAIHAU!
+                </h1>
+                <p className="mt-4 text-lg md:text-2xl text-white">
+                    RAISE UP AGAIN THE BILLOWING SAIL!
+                </p>
+            </div>
+        </section>
+    );
 }
+
+
+
+
+
+
+
+
